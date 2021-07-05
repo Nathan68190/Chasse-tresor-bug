@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Créer une étape :</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+</head>
+<body>
+<h1>Créer une étape :</h1>
+
+
+<form method="POST"
+      th:action="@{/addEtape}" th:object="${etapeForm}">
+    Titre :
+    <input th:field="*{titre}" type="text"/>
+    <br/>
+    Description :
+    <input th:field="*{description}" type="text"/>
+    Scénario : <select th:field="*{scenarioId}">
+    <option th:each="scenario : ${scenarios}" th:utext="${scenario.titre}"
+            th:value="${scenario.id}"/>
+</select>
+    <br/>
+    <input type="submit" value="Créer"/>
+</form>
+
+<br/>
+
+<!-- Check if errorMessage is not null and not empty -->
+
+<div style="color:red;font-style:italic;" th:if="${errorMessage}"
+     th:utext="${errorMessage}">
+    ...
+</div>
+
+</body>
+</html>

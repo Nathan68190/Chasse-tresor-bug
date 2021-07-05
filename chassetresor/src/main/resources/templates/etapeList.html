@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Etape List</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+</head>
+<body>
+<h1>Liste d'étapes</h1>
+<a href="addEtape">Ajouter une étape</a>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="etape : ${etapes}">
+            <td th:utext="${etape.titre}">...</td>
+            <td th:utext="${etape.description}">...</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
