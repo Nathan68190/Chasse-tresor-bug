@@ -35,4 +35,11 @@ public class Scenario {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void setId(Integer id) {
+    }
+
+    public Object getId() {
+        return id;
+    }
 }
